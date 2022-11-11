@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Response</title>
+    <link rel="stylesheet" href="css/general.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Resolute</h1>
+            <a href="/" class="back-btn">Go back</a>
+        </div>
+        <form action="/search" method="post">
+            <div class="response-form">
+                <input type="text" name="id" placeholder="Enter tweet post id" required>
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </header>
+    <div class="container">
+        <div class="details-section texts">
+            <div class="details-head">
+                <div class="identity-dp">
+                    <img src="<%= receivedAuthor.data.profile_image_url %>" alt="" class="dp">
+                </div>
+                <div class="identity-info">
+                    <p class="identity fullname"><%= receivedAuthor.data.name %></p>
+                    <p class="identity uname">@<%= receivedAuthor.data.username %></p>
+                </div>
+                
+            </div>
+            <div class="details">
+                <p class="details-title">Text: </p>
+                <p class="post-data post-text"><%= receivedData.data.text %></p>
+            </div>
+            <div class="details">
+                <p class="details-title">Post ID: </p>
+                <p class="post-data post-text"><%= receivedData.data.id %></p>
+            </div>
+            <div class="details">
+                <p class="details-title">Created At: </p>
+                <p class="post-data"><%= receivedData.data.created_at %></p>
+            </div>
+            <div class="details">
+                <p class="details-title">Posted using: </p>
+                <p class="post-data"><%= receivedData.data.source %></p>
+            </div>
+        </div>
+        <div class="details-section photos">
+            <div class="gallery">
+                <% if (receivedData.includes){ %>
+                    <% receivedData.includes.media.forEach((media) => { %>
+                        <% if (media.type == 'video'){ %>
+                            <p>video</p>
+                        <% } %>
+                        <% if (media.type == 'photo'){ %>
+                            <a href="<%= media.url %>?format=jpg&name=large" target="_blank"><img src="<%= media.url %>" class="post-img"></a>
+                        <% } %>
+                    <% }) %>
+                <% } else { %>
+                    <p>No media attached</p>
+                <% } %> 
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
