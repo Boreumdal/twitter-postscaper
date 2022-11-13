@@ -46,3 +46,6 @@ Output breakdown:
 - retrieved.txt file stores the retrived post and saves it to a JSON format. This file can be converted to a JSON by removing the `,` in the last part of the text and putting `[` to the beginning and `]` to the end.
 ![output](./assets/output-json.png)
 - folders with number name. This folders are named using JavaScript `new Date().getTime()`. 
+
+ ## Questions
+ If you have any questions. Message me on Discord - Boreumdari#8243
