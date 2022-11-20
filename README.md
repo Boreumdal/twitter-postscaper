@@ -48,4 +48,4 @@ Output breakdown:
 - folders with number name. This folders are named using JavaScript `new Date().getTime()`. 
 
  ## Questions
- If you have any questions. Message me on Discord - Boreumdari#8243
+ If you have any questions. Message me on Discord - Friday#8243
